@@ -20,8 +20,8 @@ int main()
 {
     {
 		std::cout << "----Test 1----" << std::endl;
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
+		const AAnimal* j = new Dog();
+		const AAnimal* i = new Cat();
 		std::cout << std::endl;
 
 		delete j;
@@ -29,8 +29,8 @@ int main()
 	}
     {
         std::cout << "----Test 2----" << std::endl;
-        Animal* j = new Cat();
-		Animal* i = new Cat();
+        AAnimal* j = new Cat();
+		AAnimal* i = new Cat();
 
 		(*i) = (*j);
 		
@@ -39,8 +39,8 @@ int main()
     }
         {
         std::cout << "----Test 3----" << std::endl;
-        Animal* j = new Dog();
-		Animal* i = new Dog();
+        AAnimal* j = new Dog();
+		AAnimal* i = new Dog();
 
 		(*i) = (*j);
 		
@@ -87,7 +87,7 @@ int main()
     }
     {
 		std::cout << "----Test 8----" << std::endl;
-        Animal * shelter[SIZE];
+        AAnimal * shelter[SIZE];
         for (int i = 0; i < SIZE; i++) {
 			if (i < SIZE / 2)
 				shelter[i] = new Cat();
