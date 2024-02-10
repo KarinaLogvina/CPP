@@ -12,18 +12,18 @@ ScalarConverter & ScalarConverter::operator=(const ScalarConverter &rhs) {
   return *this;
 }
 
-static void printChar(char const & charResult, int const & flag) {
+static void printChar(char charResult, int flag) {
   std::cout << "char: ";
   if (flag) {
     std::cout << "impossible" << std::endl;
-  } else if(std::isprint(charResult)) {
+  } else if (std::isprint(charResult)) {
     std::cout << charResult << std::endl;
   } else {
     std::cout << "Non displayable" << std::endl;
   }
 }
 
-static void printInt(char const & intResult, int const & flag) {
+static void printInt(int intResult, int flag) {
   std::cout << "int: ";
   if (flag) {
     std::cout << "impossible" << std::endl;
@@ -32,7 +32,7 @@ static void printInt(char const & intResult, int const & flag) {
   }
 }
 
-static void printFloat(char const & floatResult, int const & precision) {
+static void printFloat(float floatResult, int precision) {
   std::cout << "float: ";
   if (precision)
     std::cout << std::fixed << std::setprecision(precision) << floatResult << "f" << std::endl;
@@ -40,7 +40,7 @@ static void printFloat(char const & floatResult, int const & precision) {
     std::cout << std::fixed << std::setprecision(1) << floatResult << "f" << std::endl;
 }
 
-static void printDouble(double const & doubleResult, int precision) {
+static void printDouble(double doubleResult, int precision) {
   std::cout << "double: ";
   if (precision)
     std::cout << std::fixed << std::setprecision(precision) << doubleResult << std::endl;
@@ -48,7 +48,7 @@ static void printDouble(double const & doubleResult, int precision) {
     std::cout << std::fixed << std::setprecision(1) << doubleResult << std::endl;
 }
 
-static void printError(void) {
+static void printError() {
   std::cerr << "Invalid literal. Conversion is impossible." << std::endl;
 }
 
@@ -56,18 +56,19 @@ static int precisionCheck(std::string const & literal) {
   int posFirst = literal.find('.');
   int posLast = literal.find('f');
   std::string subStr = "";
-  if (posFirst > 0 && posLast > 0)
+  if (posFirst > 0 && posLast > 0) {
     subStr = literal.substr(posFirst + 1, posLast - posFirst - 1);
-  else if (posFirst > 0)
+  } else if (posFirst > 0) {
     subStr = literal.substr(posFirst + 1);
+  }
   return (subStr.length());
 }
 
 void ScalarConverter::convert(std::string const & literal) {
   char charResult;
-  int intResult = 0;
-  float floatResult = 0;
-  double doubleResult = 0;
+  int intResult;
+  float floatResult;
+  double doubleResult;
   int flag = 0;
   int precision = precisionCheck(literal);
 
@@ -85,12 +86,12 @@ void ScalarConverter::convert(std::string const & literal) {
       doubleResult = static_cast<double>(intResult);
     } else if (iss >> floatResult) {
       charResult = static_cast<char>(floatResult);
-      floatResult = static_cast<float>(floatResult);
+      intResult = static_cast<int>(floatResult);
       doubleResult = static_cast<double>(floatResult);
     } else if (iss >> doubleResult) {
       charResult = static_cast<char>(doubleResult);
-      floatResult = static_cast<float>(doubleResult);
-      doubleResult = static_cast<double>(doubleResult);
+      intResult = static_cast<int>(doubleResult);
+      floatResult = static_cast<double>(doubleResult);
     } else if (literal == "nan" || literal == "nanf") {
       flag = 1;
       charResult = 'i';

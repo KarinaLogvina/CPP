@@ -1,4 +1,4 @@
-NAME = Serialization
+NAME = base
 
 CXX = clang
 
@@ -6,10 +6,15 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
-INCLUDES =	Serialization.hpp
+INCLUDES =	Base.hpp \
+			A.hpp	 \
+			B.hpp 	 \
+			C.hpp 	 \
+			func.hpp
 
-SRCS =		Serialization.cpp	\
-			main.cpp
+SRCS =		Base.cpp	\
+			func.cpp 	\
+			main.cpp	\
 
 OBJS = $(SRCS:.cpp=.o)
 

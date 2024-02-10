@@ -2,8 +2,8 @@
 // Created by Karina Logvina on 28.01.24.
 //
 
-#ifndef CPP06_SCALARCONVERTER_HPP
-#define CPP06_SCALARCONVERTER_HPP
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
 # include <iostream>
 # include <string>

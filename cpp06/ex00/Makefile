@@ -1,6 +1,6 @@
-NAME = ScalarConverter
+NAME = convert
 
-CXX = c++
+CXX = clang
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
