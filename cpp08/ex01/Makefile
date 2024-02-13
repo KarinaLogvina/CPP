@@ -1,15 +1,14 @@
-NAME = convert
+NAME = Span
 
-CXX = c++
+CXX = clang++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
-INCLUDES =	ScalarConverter.hpp
+INCLUDES =	Span.hpp
 
-SRCS =		ScalarConverter.cpp	\
-			main.cpp
+SRCS =		main.cpp Span.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -17,19 +16,19 @@ all : $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "\nconvert updated"
+	@echo "\ntemplate updated"
 
 %.o: %.cpp $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS)
-	@echo "\nconvert clean done"
+	@echo "\ntemplate clean done"
 
 fclean :
 	$(RM) $(OBJS)
 	$(RM) $(NAME)
-	@echo "\nconvert fclean done"
+	@echo "\ntemplate fclean done"
 
 re : fclean all
 
