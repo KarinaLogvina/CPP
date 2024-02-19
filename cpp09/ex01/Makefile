@@ -1,4 +1,4 @@
-NAME = Span
+NAME = rpn
 
 CXX = clang++
 
@@ -6,9 +6,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
-INCLUDES =	MutantStack.hpp
+INCLUDES =	RPN.hpp
 
-SRCS =		main.cpp
+SRCS =		main.cpp RPN.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -16,19 +16,19 @@ all : $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "\ntemplate updated"
+	@echo "\n updated"
 
 %.o: %.cpp $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS)
-	@echo "\ntemplate clean done"
+	@echo "\n clean done"
 
 fclean :
 	$(RM) $(OBJS)
 	$(RM) $(NAME)
-	@echo "\ntemplate fclean done"
+	@echo "\n fclean done"
 
 re : fclean all
 

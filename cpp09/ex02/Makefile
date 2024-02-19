@@ -1,4 +1,4 @@
-NAME = btc
+NAME = PmergeMe
 
 CXX = clang++
 
@@ -6,9 +6,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = @rm -rf
 
-INCLUDES =	BitcoinExchange.hpp
+INCLUDES =	PmergeMe.hpp
 
-SRCS =		BitcoinExchange.cpp main.cpp
+SRCS =		main.cpp PmergeMe.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -16,19 +16,19 @@ all : $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "\n updated"
+	@echo "\nupdated"
 
 %.o: %.cpp $(INCLUDES) Makefile
 	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJS)
-	@echo "\n clean done"
+	@echo "\nclean done"
 
 fclean :
 	$(RM) $(OBJS)
 	$(RM) $(NAME)
-	@echo "\n fclean done"
+	@echo "\nfclean done"
 
 re : fclean all
 

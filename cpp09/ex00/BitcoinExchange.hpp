@@ -1,7 +1,3 @@
-//
-// Created by Karina Logvina on 13.02.24.
-//
-
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 

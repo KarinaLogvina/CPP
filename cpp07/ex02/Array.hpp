@@ -16,7 +16,7 @@ class Array {
         delete []_arr;
     };
     Array(unsigned int _size) : _size(_size) {
-        this->_arr = new T[_size];
+        this->_arr = new T[_size]();
     }
     Array(Array<T> const & other): _size(other._size) {
       _arr = new T[_size];
